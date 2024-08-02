@@ -54,7 +54,7 @@ userSchema.pre("save", async function (next) {
     // this will check if the password is modified or not, 
     // if this check is not used than each time password will be encrypted even if the image or any other field is changed
 
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()
 })  
 
